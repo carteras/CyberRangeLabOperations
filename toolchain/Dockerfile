@@ -1,7 +1,11 @@
-FROM archlinux:latest
+FROM archlinux:base-devel
 
-RUN pacman -Syu base-devel
+# Install required packages
+RUN pacman -Syy --noconfirm arch-install-scripts git awk dosfstools e2fsprogs erofs-utils findutils gzip libarchive libisoburn mtools openssl sed squashfs-tools xorriso
 
-ADD ./HOST_arch /build
+WORKDIR /root
+# Add install scripts, config files etc.
+ADD ./HOST_arch /root
+RUN mkdir /root/wdir && mkdir /root/odir
 
-CMD ["/bin/bash"]
+CMD ["./mkarchiso", "-v", "-w", "/root/wdir", "-o", "/root/odir", "/root/profile"]
