@@ -7,4 +7,5 @@ echo "deb http://mirror.aarnet.edu.au/debian stable main non-free contrib" > /et
 apt update
 
 # Install packages for basic admin and virtualization
-DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y netcat vim nano wpasupplicant dhcpcd5 qemu-system libvirt-clients libvirt-daemon-system virt-install 
+DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends -y netcat nmap vim nano wpasupplicant dhcpcd5 qemu-system libvirt-clients libvirt-daemon-system lightdm-gtk-greeter lightdm task-xfce-desktop gnome-terminal
+echo "Installed packages!"

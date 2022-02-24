@@ -1,15 +1,12 @@
 set timeout -1
 
-spawn qemu-system-x86_64 -nographic -hda cros.img -boot d -smp 6 -m 8G
+spawn ssh root@127.0.0.1 -p 2222
 
-expect "login: "
-send "root\n"
-
-expect "Password: "
+expect "password: "
 send "root\n"
 
 expect "# "
-send "wget -O /root/build.tar.gz http://10.137.137.2/build.tar.gz && cd /root/build/ && tar xf /root/build.tar.gz && ./TARGET_build.sh && echo DONE123"
+send "wget -O /root/build.tar.gz http://10.137.137.2/build.tar.gz && cd /root/build/ && tar xf /root/build.tar.gz && ./TARGET_build.sh && cat /root/done.txt\n"
 
-expect "DONE123"
-send "shutdown now"
+expect "tester123"
+send "shutdown now\n"
