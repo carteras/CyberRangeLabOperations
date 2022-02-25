@@ -3,7 +3,7 @@
 
 PWD = /home/johndoe/CyberRangeLabOperations/toolchain
 
-# 'archbuild' builds our CROS Linux iso
+# 'archbuild' builds our CROS Linux iso (with netboot artifacts)
 archbuild:
 
 	@echo "Building ISO..."
