@@ -7,9 +7,9 @@ PWD = /home/johndoe/CyberRangeLabOperations/toolchain
 archbuild:
 
 	@echo "Building ISO..."
-	mkdir test
-	docker build --no-cache -t cros/mkarchiso .
-	docker run --privileged -v $(PWD)/test:/root/odir cros/mkarchiso
+	mkdir build
+	docker build --no-cache -t cros/mkarchiso . 
+	docker run --privileged -v $(PWD)/build:/root/odir cros/mkarchiso
 	@echo "Done"
 
 # 'targetbuild' boots up the template inside a QEMU VM and runs a wget cmd to get the build file off of the host machine
@@ -35,7 +35,6 @@ targetbuild:
 clean:
 
 	@echo "Cleaning up..."
-	sudo rm -rf test/
 	sudo rm -rf build/
 	sudo rm /var/www/html/build.tar.gz
 
