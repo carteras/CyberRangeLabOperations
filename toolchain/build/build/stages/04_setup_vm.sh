@@ -3,5 +3,5 @@
 systemctl enable --now libvirtd.service
 virsh net-autostart default
 
-usermod -aG libvirt user
-usermod -aG libvirt-qemu user
+usermod -aG user libvirt
+usermod -aG user libvirt-qemu

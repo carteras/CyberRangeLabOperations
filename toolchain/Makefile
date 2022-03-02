@@ -39,6 +39,14 @@ clean:
 	sudo rm /var/www/html/build.tar.gz
 
 	@echo "Done"
-	
+
+check:
+	@echo Hello World!
+	@echo IMPLEMENT!!
+	@echo IMPLEMENT!!
+	@echo IMPLEMENT!!
+	@echo IMPLEMENT!!
+	@echo IMPLEMENT!!
+	# TODO: implement check to make sure all the files needed for the netboot stuff to work
 
 # What else do we want to in the Makefile??
