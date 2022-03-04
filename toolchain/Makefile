@@ -29,7 +29,11 @@ targetbuild:
 	tar -cvf build/build.tar.gz build/build
 	sudo cp build/build.tar.gz /var/www/html/
 
-	sshpass -p root ssh root@127.0.0.1 -p 2222 "wget -O /root/build.tar.gz http://10.137.137.2/build.tar.gz && tar xf /root/build.tar.gz && cd /root/build/build/ && chmod +x TARGET_build.sh && chmod +x ./stages/* && ./TARGET_build.sh && shutdown -h +1"
+	sshpass -p root ssh root@127.0.0.1 -p 2222 "wget -O /root/build.tar.gz http://10.137.137.4/build.tar.gz && tar xf /root/build.tar.gz && cd /root/build/build/ && chmod +x TARGET_build.sh && chmod +x ./stages/* && ./TARGET_build.sh && shutdown -h +1"
+	sleep 65
+
+	qemu-img convert -f qcow2 -O raw build/cros.img build/cros_raw.img
+	gzip build/cros_raw.img
 
 # 'clean' wipes the iso off the computer
 clean:
