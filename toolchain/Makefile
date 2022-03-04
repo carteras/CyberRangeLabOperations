@@ -34,7 +34,7 @@ targetbuild:
 
 	qemu-img convert -f qcow2 -O raw build/cros.img build/cros_raw.img
 	mv build/cros_raw.img build/cros.img
-	gzip build/cros_raw.img
+	gzip build/cros.img
 
 # 'clean' wipes the iso off the computer
 clean:
