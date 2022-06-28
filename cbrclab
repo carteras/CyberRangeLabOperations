@@ -37,7 +37,7 @@ mount /dev/sda1 /mnt/home
 
 # I feel that we can cat this mirror list
 # * 3 (Installing basic packages)
-echo "Server = http://mirror.aarnet.edu.au/pub/archlinux/$repo/os/$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirror.aarnet.edu.au/pub/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 #vim /etc/pacman.d/mirrorlist
 # (Change the mirrorlist to `Server = http://mirror.arrnet.edu.au/pub/archlinux/$repo/os/$arch`)
 
