@@ -8,7 +8,7 @@ read HOSTNAME
 
 #curl --proto '=https' --tlsv1.2 -sSf https://raw.github.com/whatever | sh
 gpm -m /dev/input/mice -t imps2
-timedatectl set-ntp trure
+timedatectl set-ntp true
 
 # we can pipe cmds to fdisk but I can't remember the entire cmd chain
 # don't execute this until we check it (it is wrong)
