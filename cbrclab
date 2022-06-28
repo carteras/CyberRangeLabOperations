@@ -39,7 +39,7 @@ mount /dev/sda1 /mnt/home
 # * 3 (Installing basic packages)
 echo "Server = http://mirror.aarnet.edu.au/pub/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 #vim /etc/pacman.d/mirrorlist
-# (Change the mirrorlist to `Server = http://mirror.arrnet.edu.au/pub/archlinux/$repo/os/$arch`)
+# (Change the mirrorlist to Server = http://mirror.arrnet.edu.au/pub/archlinux/$repo/os/$arch)
 
 # * 3.1
 pacstrap /mnt base base-devel linux linux-firmware xorg-server sddm plasma-desktop arduino git python3 dotnet-runtime dotnet-sdk networkmanager dhcpcd sudo kde-applications firefox terminator vim nano code ntfs-3g nfs-utils freeradius
@@ -59,11 +59,11 @@ hwclock --systohc
 # is this right?
 echo -n "LANG=en_AU.UTF-8" > /etc/default/locale
 # vim /etc/locale.gen
-# (uncomment the line that says `en_AU.UTF-8 UTF-8`)
+# (uncomment the line that says en_AU.UTF-8 UTF-8)
 
 echo -e 'LANG=en_AU.UTF-8' > /etc/locale.conf
 # vim /etc/locale.conf
-# (add `LANG=en_AU.UTF-8`)
+# (add LANG=en_AU.UTF-8)
 locale-gen
 
 # is this right? 
@@ -95,12 +95,12 @@ cd /opt
 git clone https://aur.archlinux.org/yay.git
 cd yay/
 vim /etc/makepkg.conf
-# (set `MAKEFLAGS="-j2"` to `MAKEFLAGS="-j12"`)
+# (set MAKEFLAGS="-j2" to MAKEFLAGS="-j12")
 chown -R $ADMIN_ACCOUNT: .
 sudo -u $ADMIN_ACCOUNT makepkg -sci
 sudo -u $ADMIN_ACCOUNT yay -S hfsprogs
 
-* 5.3
+#* 5.3
 pacman --noconfirm -S grub efibootmgr
 grub-install --taget=x86_64-efi --efi-directory=/boot/efi/
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -110,5 +110,5 @@ read
 arch-chroot /mnt "/bin/bash /strap.sh"
 
 
-* 6 (Finish up)
+#* 6 (Finish up)
 umount -R /mnt
