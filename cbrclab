@@ -106,8 +106,8 @@ grub-install --taget=x86_64-efi --efi-directory=/boot/efi/
 grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 #this pause is for debugging
-read 
-arch-chroot /mnt "/bin/bash /strap.sh"
+chmod +x /mnt/strap.sh
+arch-chroot /mnt "/strap.sh"
 
 
 #* 6 (Finish up)
