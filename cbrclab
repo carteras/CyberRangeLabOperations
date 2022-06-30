@@ -25,6 +25,7 @@ echo -e "g\nn\n\n\n+300M\nt\n1\nn\n\n\n+16G\nt\n\n19\nn\n\n\n\nw" | fdisk /dev/n
 # - create 1 linux swap partition that uses +16G
 # - create 1 linux system partition that uses the rest of the disk
 
+mkfs.ext4 /dev/sda1
 mkfs.ext4 /dev/nvme0n1p3
 mkfs.vfat -F32  /dev/nvme0n1p1
 mkswap /dev/nvme0n1p2
@@ -102,7 +103,7 @@ sudo -u $ADMIN_ACCOUNT yay -S hfsprogs
 
 #* 5.3
 pacman --noconfirm -S grub efibootmgr
-grub-install --taget=x86_64-efi --efi-directory=/boot/efi/
+grub-install --target=x86_64-efi --efi-directory=/boot/efi/
 grub-mkconfig -o /boot/grub/grub.cfg
 EOF
 #this pause is for debugging
