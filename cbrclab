@@ -43,10 +43,10 @@ echo "Server = http://thunderbolt.dnt.cbrc/mirror/\$repo/os/\$arch" > /etc/pacma
 # (Change the mirrorlist to Server = http://mirror.arrnet.edu.au/pub/archlinux/$repo/os/$arch)
 
 # * 3.1
-pacstrap /mnt base base-devel linux linux-firmware xorg-server sddm plasma-desktop arduino git python3 dotnet-runtime dotnet-sdk networkmanager dhcpcd sudo kde-applications firefox terminator vim nano code ntfs-3g nfs-utils freeradius
+pacstrap /mnt base base-devel linux linux-firmware xorg-server lightdm plasma-desktop arduino git python3 dotnet-runtime dotnet-sdk networkmanager dhcpcd sudo kde-applications firefox terminator vim nano code nfs-utils
 # (you have to wait for pacman to exit on a error for some reason to run the next command then run the install again)
 pacman-key --init && pacman-key --populate archlinux
-pacstrap /mnt base base-devel linux linux-firmware xorg-server sddm plasma-desktop arduino git python3 dotnet-runtime dotnet-sdk networkmanager dhcpcd sudo kde-applications firefox terminator vim nano code ntfs-3g nfs-utils freeradius
+pacstrap /mnt base base-devel linux linux-firmware xorg-server lightdm plasma-desktop arduino git python3 dotnet-runtime dotnet-sdk networkmanager dhcpcd sudo kde-applications firefox terminator vim nano code nfs-utils
 
 # * 3.2
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -74,7 +74,7 @@ echo $HOSTNAME > /etc/hostname
 # * 4.1
 systemctl enable NetworkManager
 systemctl enable dhcpcd
-systemctl enable sddm
+systemctl enable lightdm
 
 # * 5 (Add the user)
 useradd -m user
