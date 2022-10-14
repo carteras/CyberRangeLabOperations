@@ -38,7 +38,7 @@ mount /dev/sda1 /mnt/home
 
 # I feel that we can cat this mirror list
 # * 3 (Installing basic packages)
-echo "Server = http://mirror.aarnet.edu.au/pub/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://thunderbolt.dnt.cbrc/mirror/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 #vim /etc/pacman.d/mirrorlist
 # (Change the mirrorlist to Server = http://mirror.arrnet.edu.au/pub/archlinux/$repo/os/$arch)
 
@@ -58,11 +58,12 @@ ln -sf /usr/share/zoneinfo/Australia/Canberra /etc/localtime
 hwclock --systohc
 
 # is this right?
-echo -n "LANG=en_AU.UTF-8" > /etc/default/locale
+# echo -n "LANG=en_AU.UTF-8" > /etc/default/locale
 # vim /etc/locale.gen
 # (uncomment the line that says en_AU.UTF-8 UTF-8)
+echo 'en_AU.UTF-8 UTF-8' > /etc/locale.gen
 
-echo -e 'LANG=en_AU.UTF-8' > /etc/locale.conf
+echo 'LANG=en_AU.UTF-8' > /etc/locale.conf
 # vim /etc/locale.conf
 # (add LANG=en_AU.UTF-8)
 locale-gen
@@ -100,6 +101,16 @@ vim /etc/makepkg.conf
 chown -R $ADMIN_ACCOUNT: .
 sudo -u $ADMIN_ACCOUNT makepkg -sci
 sudo -u $ADMIN_ACCOUNT yay -S hfsprogs
+
+#====================
+#= NEW AS OF TERM 4 =
+#====================
+
+
+
+#========================
+#= END NEW AS OF TERM 4 =
+#========================
 
 #* 5.3
 pacman --noconfirm -S grub efibootmgr
